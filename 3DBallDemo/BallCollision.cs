@@ -1,6 +1,6 @@
 ﻿/**
  * 
- *  File:       Test3DDemo.cs
+ *  File:       BallCollision.cs
  *  Author:     Allan Anderson
  *  Date:       August 8, 2018
  *  Purpose:    An object that will display as a ball bouncing in a 3D cube
@@ -19,10 +19,12 @@ namespace _3DBallDemo
 {
     public class BallCollision : Game
     {
+        #region Constants
         private const int WINDOW_WIDTH = 1280;
         private const int WINDOW_HEIGHT = 720;
         private const int TEXT_LOCATION = WINDOW_WIDTH - 250;
         private const int MARGIN = 30;
+        #endregion
 
         #region Enums
         protected enum DrawingState
