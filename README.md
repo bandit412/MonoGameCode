@@ -4,7 +4,7 @@
 The purpose of this repository is to share code that I have been working on; the code is for demonstration of math and physics concepts for a course that I teach. Most of the source code does work, yet there are a few _glitches_ that I still need to work on.
 
 ## Game Assets
-Some of the game assets are not part of this repository.
+The game assets are included with each project.
 
 ## Game Projects
 So far I have completed the following projects:
@@ -15,3 +15,4 @@ So far I have completed the following projects:
 * 3D Rotation - two versions
 * Forces at Angles
 * 2D Collisions
+* 2D Transforms
