@@ -16,3 +16,4 @@ So far I have completed the following projects:
 * Forces at Angles
 * 2D Collisions
 * 2D & 3D Transforms
+* Springs (adapted from other authors)

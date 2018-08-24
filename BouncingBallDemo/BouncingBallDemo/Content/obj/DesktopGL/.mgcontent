@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/CourierNew.spritefont</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/largeFont.spritefont</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/RedBall.png</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/boundary.png</File>
+  </SourceFiles>
+</SourceFileCollection>

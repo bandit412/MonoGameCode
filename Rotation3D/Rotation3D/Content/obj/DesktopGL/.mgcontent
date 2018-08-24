@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/piper_bump.jpg</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/piper_diffuse.jpg</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/piper_pa18.fbx</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/piper_refl.jpg</File>
+    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/CourierNew.spritefont</File>
+  </SourceFiles>
+</SourceFileCollection>

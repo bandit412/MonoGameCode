@@ -1,0 +1,2 @@
+Rock texture: http://opengameart.org/content/rocks
+Sky texture: http://opengameart.org/content/sky-backdrop
