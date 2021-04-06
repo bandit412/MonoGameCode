@@ -4,10 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/background.jpg</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/barWhite.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/CourierNew.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/handle.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/wagon.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/background.jpg</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/barWhite.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/handle.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/wagon.png</File>
   </SourceFiles>
 </SourceFileCollection>

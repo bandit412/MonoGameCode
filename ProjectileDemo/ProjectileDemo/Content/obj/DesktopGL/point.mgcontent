@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/ProjectileDemo/ProjectileDemo/Content/point.png</SourceFile>
-  <SourceTime>2018-08-01T15:03:03.850869-06:00</SourceTime>
-  <DestFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/ProjectileDemo/ProjectileDemo/Content/bin/DesktopGL/point.xnb</DestFile>
-  <DestTime>2018-08-01T15:03:48.572463-06:00</DestTime>
+  <SourceFile>C:/Users/allan/Documents/GitHub/MonoGameCode/ProjectileDemo/ProjectileDemo/Content/point.png</SourceFile>
+  <SourceTime>2018-09-03T08:01:39.5434261-06:00</SourceTime>
+  <DestFile>C:/Users/allan/Documents/GitHub/MonoGameCode/ProjectileDemo/ProjectileDemo/Content/bin/DesktopGL/point.xnb</DestFile>
+  <DestTime>2021-04-06T10:22:55.6705975-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

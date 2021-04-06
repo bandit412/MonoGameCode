@@ -3,6 +3,7 @@
  *  File:       Transform.cs
  *  Author:     Allan Anderson
  *  Date:       August 13, 2018
+ *  Modified:   April 6, 2021
  *  Purpose:    To visually demonstrate transformation of an object in 2D space
  *  
  **/
@@ -16,17 +17,17 @@ namespace Transform2D
     public class Transform : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1024;
-        private const int WINDOW_HEIGHT = 768;
-        private const int WINDOW_MARGIN = 30;
-        private const int INSTRUCTION_SPOT = 540;
+        private const int WindowWidth = 1024;
+        private const int WindowHeight = 768;
+        private const int WindowMargin = 30;
+        private const int InstructionSpot = 540;
         // string messages
-        private const string GAME_OVER = "Game Over";
-        private const string RESET_QUIT = "Press R to redo or Q to quit";
-        private int GAME_OVER_LENGTH = GAME_OVER.Length;
-        private int RESET_QUIT_LENGTH = RESET_QUIT.Length;
+        private const string GameOver = "Game Over";
+        private const string ResetQuit = "Press R to redo or Q to quit";
+        private int GameOverLength = GameOver.Length;
+        private int ResetQuitLength = ResetQuit.Length;
         // vector2 "constants"
-        private Vector2 GRID_CENTER = new Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+        private Vector2 Grid_Center = new Vector2(WindowWidth / 2, WindowHeight / 2);
         #endregion
 
         #region Enums
@@ -81,13 +82,13 @@ namespace Transform2D
         #region Game Methods
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
-            gameBoundingBox = new Rectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            gameBoundingBox = new Rectangle(0, 0, WindowWidth, WindowHeight);
             drawingState = DrawingState.Initialize;
             transformToggle = TransformToggle.Shift;
-            twoDObject = new TwoDObject(GRID_CENTER, Vector2.Zero, Vector2.Zero);
+            twoDObject = new TwoDObject(Grid_Center, Vector2.Zero, Vector2.Zero);
             basicEffect = new BasicEffect(graphics.GraphicsDevice)
             {
                 VertexColorEnabled = true,
@@ -225,7 +226,7 @@ namespace Transform2D
                     // reset the drawing
                     if ((currentKeys & InputKeyManager.Triggers.Reset) != 0)
                     {
-                        twoDObject = new TwoDObject(GRID_CENTER, Vector2.Zero, Vector2.Zero);
+                        twoDObject = new TwoDObject(Grid_Center, Vector2.Zero, Vector2.Zero);
                         twoDObject.LoadContent(Content);
                         shiftX = 0;
                         shiftY = 0;
@@ -259,31 +260,31 @@ namespace Transform2D
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, vertices, 0, 5);
                     spriteBatch.DrawString(courierNew, "Shift and Scale in 2D", Vector2.Zero, Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press T to toggle between shift and scale", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 2 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 3 * WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 " + shiftX + " |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 4 * WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " " + shiftY + " |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 5 * WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 1 |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 6 * WINDOW_MARGIN), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WindowMargin, InstructionSpot), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WindowMargin, InstructionSpot + WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press T to toggle between shift and scale", new Vector2(WindowMargin, InstructionSpot + 2 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WindowMargin, InstructionSpot + 3 * WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 " + shiftX + " |", new Vector2(WindowMargin, InstructionSpot + 4 * WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " " + shiftY + " |", new Vector2(WindowMargin, InstructionSpot + 5 * WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 1 |", new Vector2(WindowMargin, InstructionSpot + 6 * WindowMargin), Color.Black);
                     break;
                 case DrawingState.Drawing:
                     spriteBatch.Draw(graphPaper, Vector2.Zero, Color.White);
                     twoDObject.Draw(gameTime, spriteBatch);
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, vertices, 0, 5);
-                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 " + shiftX + " |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 4 * WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " " + shiftY + " |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 5 * WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 1 |", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 6 * WINDOW_MARGIN), Color.Black);
+                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 " + shiftX + " |", new Vector2(WindowMargin, InstructionSpot + 4 * WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " " + shiftY + " |", new Vector2(WindowMargin, InstructionSpot + 5 * WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 1 |", new Vector2(WindowMargin, InstructionSpot + 6 * WindowMargin), Color.Black);
                     break;
                 case DrawingState.Paused:
                     // game is paused
-                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 10), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WindowWidth / 2 - 100, WindowHeight / 2 - 10), Color.Blue);
                     break;
                 case DrawingState.Reset:
                     spriteBatch.DrawString(courierNew,
-                        RESET_QUIT,
-                        new Vector2(WINDOW_WIDTH / 2 - ((RESET_QUIT_LENGTH / 2) * 14), WINDOW_HEIGHT / 2),
+                        ResetQuit,
+                        new Vector2(WindowWidth / 2 - ((ResetQuitLength / 2) * 14), WindowHeight / 2),
                         Color.Black);
                     break;
                 case DrawingState.Done:
@@ -298,16 +299,16 @@ namespace Transform2D
         private void SetVertices()
         {
             vertices = new VertexPositionColor[twoDObject.Points.Count * 2];
-            vertices[0].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[0].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[0].PointLocation.Y), 0);
-            vertices[1].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[1].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[1].PointLocation.Y), 0);
-            vertices[2].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[1].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[1].PointLocation.Y), 0);
-            vertices[3].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[2].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[2].PointLocation.Y), 0);
-            vertices[4].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[2].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[2].PointLocation.Y), 0);
-            vertices[5].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[3].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[3].PointLocation.Y), 0);
-            vertices[6].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[3].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[3].PointLocation.Y), 0);
-            vertices[7].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[4].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[4].PointLocation.Y), 0);
-            vertices[8].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[4].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[4].PointLocation.Y), 0);
-            vertices[9].Position = new Vector3(GRID_CENTER.X + (twoDObject.Points[0].PointLocation.X), GRID_CENTER.Y - (twoDObject.Points[0].PointLocation.Y), 0);
+            vertices[0].Position = new Vector3(Grid_Center.X + (twoDObject.Points[0].PointLocation.X), Grid_Center.Y - (twoDObject.Points[0].PointLocation.Y), 0);
+            vertices[1].Position = new Vector3(Grid_Center.X + (twoDObject.Points[1].PointLocation.X), Grid_Center.Y - (twoDObject.Points[1].PointLocation.Y), 0);
+            vertices[2].Position = new Vector3(Grid_Center.X + (twoDObject.Points[1].PointLocation.X), Grid_Center.Y - (twoDObject.Points[1].PointLocation.Y), 0);
+            vertices[3].Position = new Vector3(Grid_Center.X + (twoDObject.Points[2].PointLocation.X), Grid_Center.Y - (twoDObject.Points[2].PointLocation.Y), 0);
+            vertices[4].Position = new Vector3(Grid_Center.X + (twoDObject.Points[2].PointLocation.X), Grid_Center.Y - (twoDObject.Points[2].PointLocation.Y), 0);
+            vertices[5].Position = new Vector3(Grid_Center.X + (twoDObject.Points[3].PointLocation.X), Grid_Center.Y - (twoDObject.Points[3].PointLocation.Y), 0);
+            vertices[6].Position = new Vector3(Grid_Center.X + (twoDObject.Points[3].PointLocation.X), Grid_Center.Y - (twoDObject.Points[3].PointLocation.Y), 0);
+            vertices[7].Position = new Vector3(Grid_Center.X + (twoDObject.Points[4].PointLocation.X), Grid_Center.Y - (twoDObject.Points[4].PointLocation.Y), 0);
+            vertices[8].Position = new Vector3(Grid_Center.X + (twoDObject.Points[4].PointLocation.X), Grid_Center.Y - (twoDObject.Points[4].PointLocation.Y), 0);
+            vertices[9].Position = new Vector3(Grid_Center.X + (twoDObject.Points[0].PointLocation.X), Grid_Center.Y - (twoDObject.Points[0].PointLocation.Y), 0);
             for (int v = 0; v < vertices.Length; v++)
             {
                 vertices[v].Color = Color.Red;

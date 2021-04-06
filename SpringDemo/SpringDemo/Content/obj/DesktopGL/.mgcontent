@@ -4,10 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/SpringDemo/SpringDemo/Content/Help.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/SpringDemo/SpringDemo/Content/PointLarge.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/SpringDemo/SpringDemo/Content/PointSmall.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/SpringDemo/SpringDemo/Content/CourierNew.spritefont</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/SpringDemo/SpringDemo/Content/CourierNewSmall.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/SpringDemo/SpringDemo/Content/Help.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/SpringDemo/SpringDemo/Content/PointLarge.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/SpringDemo/SpringDemo/Content/PointSmall.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/SpringDemo/SpringDemo/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/SpringDemo/SpringDemo/Content/CourierNewSmall.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

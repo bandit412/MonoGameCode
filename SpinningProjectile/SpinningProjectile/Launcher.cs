@@ -2,6 +2,7 @@
  *  File:       Launcher.cs
  *  Author:     Allan Anderson
  *  Date:       August 7, 2018
+ *  Modified:   April 6, 2021
  *  Purpose:    To demonstrate a spinning projectile in 2D space
  **/
 
@@ -16,15 +17,15 @@ namespace SpinningProjectile
     public class Launcher : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1024;
-        private const int WINDOW_HEIGHT = 768;
-        private const int WINDOW_MARGIN = 30;
-        private const int INSTRUCTION_SPOT = 550;
+        private const int WindowWidth = 1024;
+        private const int WindowHeight = 768;
+        private const int WindowMargin = 30;
+        private const int InstructionSpot = 550;
         // string messages
-        private const string GAME_OVER = "Game Over";
-        private const string RESET_QUIT = "Press R to redo or Q to quit";
-        private int GAME_OVER_LENGTH = GAME_OVER.Length;
-        private int RESET_QUIT_LENGTH = RESET_QUIT.Length;
+        private const string GameOver = "Game Over";
+        private const string ResetQuit = "Press R to redo or Q to quit";
+        private int GameOverLength = GameOver.Length;
+        private int ResetQuitLength = ResetQuit.Length;
         #endregion
 
         #region Enums
@@ -45,7 +46,7 @@ namespace SpinningProjectile
         Texture2D gridPoint;
         DrawingState drawingState;
         Rectangle gameBoundingBox;
-        Vector3 launchPoint = new Vector3(WINDOW_MARGIN, WINDOW_MARGIN, 0);
+        Vector3 launchPoint = new Vector3(WindowMargin, WindowMargin, 0);
         float firingAngle;
         float firingMagnitude;
         Vector3 pointPosition;
@@ -73,15 +74,15 @@ namespace SpinningProjectile
         #region Game Methods
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
-            gameBoundingBox = new Rectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            gameBoundingBox = new Rectangle(0, 0, WindowWidth, WindowHeight);
             drawingState = DrawingState.Initialize;
 
             // for parabolic motion
             velocity = Vector3.Zero;
-            pointPosition = new Vector3(launchPoint.X, WINDOW_HEIGHT - launchPoint.Y, launchPoint.Z);
+            pointPosition = new Vector3(launchPoint.X, WindowHeight - launchPoint.Y, launchPoint.Z);
             firingAngle = 45.0f;
             firingMagnitude = 100.0f;
 
@@ -164,9 +165,9 @@ namespace SpinningProjectile
                     if ((currentKeys & InputKeyManager.Triggers.Up) != 0)
                     {
                         launchPoint.Y += 1;
-                        if (launchPoint.Y > WINDOW_HEIGHT)
+                        if (launchPoint.Y > WindowHeight)
                         {
-                            launchPoint.Y = WINDOW_HEIGHT;
+                            launchPoint.Y = WindowHeight;
                         }//end if
                     }//end if
 
@@ -181,7 +182,7 @@ namespace SpinningProjectile
 
                     // now set the starting pointPosition
                     pointPosition.X = launchPoint.X;
-                    pointPosition.Y = WINDOW_HEIGHT - launchPoint.Y;
+                    pointPosition.Y = WindowHeight - launchPoint.Y;
 
                     // press spacebar to start the game
                     if ((currentKeys & InputKeyManager.Triggers.Fire) != 0)
@@ -193,14 +194,14 @@ namespace SpinningProjectile
                     // draw objects
                     time += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     pointPosition = launchPoint + velocity * time + 0.5f * acceleration * time * time;
-                    pointPosition.Y = WINDOW_HEIGHT - pointPosition.Y;
+                    pointPosition.Y = WindowHeight - pointPosition.Y;
                     pathVertices.Add(new VertexPositionColor(pointPosition, Color.Red));
                     twoDObject.CenterOfMass = new Vector2(pointPosition.X, pointPosition.Y);
                     twoDObject.Update(gameTime);
                     SetVertices();
 
                     // check if point is off the screen
-                    if (pointPosition.Y - WINDOW_HEIGHT >= 0 || pointPosition.X >= WINDOW_WIDTH)
+                    if (pointPosition.Y - WindowHeight >= 0 || pointPosition.X >= WindowWidth)
                     {
                         drawingState = DrawingState.Reset; // may need to add another state
                     }//end if
@@ -225,8 +226,8 @@ namespace SpinningProjectile
                         firingAngle = 45.0f;
                         firingMagnitude = 100.0f;
                         velocity = Vector3.Zero;
-                        launchPoint = new Vector3(WINDOW_MARGIN, WINDOW_MARGIN, 0);
-                        pointPosition = new Vector3(launchPoint.X, WINDOW_HEIGHT - launchPoint.Y, launchPoint.Z);
+                        launchPoint = new Vector3(WindowMargin, WindowMargin, 0);
+                        pointPosition = new Vector3(launchPoint.X, WindowHeight - launchPoint.Y, launchPoint.Z);
                         pathVertices.Clear();
                         drawingState = DrawingState.Initialize;
                     }//end if
@@ -253,17 +254,17 @@ namespace SpinningProjectile
                     // initial drawing state
                     spriteBatch.DrawString(courierNew, "Spinning Projectile in 2D", Vector2.Zero, Color.Black);
                     // initial messages
-                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to increase/decrease firing angle", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to decrease/increase firing velocity", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press U to move starting position up", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN * 2), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press D to move starting position down", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN * 3), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Velocity Vector: " + firingMagnitude + "@" + firingAngle + " = [" + velocity.X + "  " + velocity.Y + "]", new Vector2(WINDOW_MARGIN, WINDOW_HEIGHT - WINDOW_MARGIN * 2), Color.Red);
-                    spriteBatch.DrawString(courierNew, "Starting position: (" + launchPoint.X + "," + (launchPoint.Y) + ")", new Vector2(WINDOW_MARGIN, WINDOW_HEIGHT - WINDOW_MARGIN), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to increase/decrease firing angle", new Vector2(WindowMargin, InstructionSpot), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to decrease/increase firing velocity", new Vector2(WindowMargin, InstructionSpot + WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press U to move starting position up", new Vector2(WindowMargin, InstructionSpot + WindowMargin * 2), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press D to move starting position down", new Vector2(WindowMargin, InstructionSpot + WindowMargin * 3), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Velocity Vector: " + firingMagnitude + "@" + firingAngle + " = [" + velocity.X + "  " + velocity.Y + "]", new Vector2(WindowMargin, WindowHeight - WindowMargin * 2), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Starting position: (" + launchPoint.X + "," + (launchPoint.Y) + ")", new Vector2(WindowMargin, WindowHeight - WindowMargin), Color.Red);
                     spriteBatch.Draw(gridPoint, new Vector2(pointPosition.X, pointPosition.Y), Color.White);
                     break;
                 case DrawingState.Drawing:
                     // draw the objects on the screen
-                    spriteBatch.DrawString(courierNew, "Projectile Location = (" + pointPosition.X + "," + (WINDOW_HEIGHT - pointPosition.Y) + ")", Vector2.Zero, Color.Black);
+                    spriteBatch.DrawString(courierNew, "Projectile Location = (" + pointPosition.X + "," + (WindowHeight - pointPosition.Y) + ")", Vector2.Zero, Color.Black);
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     spriteBatch.Draw(gridPoint, new Vector2(pointPosition.X, pointPosition.Y), Color.White);
                     graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineStrip, pathVertices.ToArray(), 0, pathVertices.Count - 1);
@@ -272,13 +273,13 @@ namespace SpinningProjectile
                     break;
                 case DrawingState.Paused:
                     // when the game is paused
-                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 10), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WindowWidth / 2 - 100, WindowHeight / 2 - 10), Color.Blue);
                     break;
                 case DrawingState.Reset:
                     // game needs to be reset of quit
                     spriteBatch.DrawString(courierNew,
-                        RESET_QUIT,
-                        new Vector2(WINDOW_WIDTH / 2 - ((RESET_QUIT_LENGTH / 2) * 14), WINDOW_HEIGHT / 2),
+                        ResetQuit,
+                        new Vector2(WindowWidth / 2 - ((ResetQuitLength / 2) * 14), WindowHeight / 2),
                         Color.Black);
                     break;
                 case DrawingState.Done:

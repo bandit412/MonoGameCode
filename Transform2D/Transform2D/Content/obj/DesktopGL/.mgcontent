@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Transform2D/Transform2D/Content/CourierNew.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Transform2D/Transform2D/Content/GraphBackground.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Transform2D/Transform2D/Content/point.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/Transform2D/Transform2D/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/Transform2D/Transform2D/Content/GraphBackground.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/Transform2D/Transform2D/Content/point.png</File>
   </SourceFiles>
 </SourceFileCollection>

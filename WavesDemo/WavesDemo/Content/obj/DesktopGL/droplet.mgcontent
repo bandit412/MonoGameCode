@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/droplet.png</SourceFile>
-  <SourceTime>2018-08-21T07:43:09.1172598-06:00</SourceTime>
-  <DestFile>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/bin/DesktopGL/droplet.xnb</DestFile>
-  <DestTime>2018-08-21T08:37:21.8305541-06:00</DestTime>
+  <SourceFile>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/droplet.png</SourceFile>
+  <SourceTime>2018-09-03T08:01:54.8322659-06:00</SourceTime>
+  <DestFile>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/bin/DesktopGL/droplet.xnb</DestFile>
+  <DestTime>2021-04-06T10:35:48.4234696-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

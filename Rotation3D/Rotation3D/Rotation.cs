@@ -3,6 +3,7 @@
  *  File:       Rotation.cs
  *  Author:     Allan Anderson
  *  Date:       August 10, 2018
+ *  Modified:   April 6, 2021
  *  Purpose:    Demo showing 3-axis rotations using Matrix and Quaternion
  *  
  **/
@@ -20,11 +21,11 @@ namespace Rotation3D
     public class Rotation : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1280;
-        private const int WINDOW_HEIGHT = 720;
-        private const int WINDOW_DEPTH = 1280;
-        private const int TEXT_LOCATION = 50;
-        private const int MARGIN = 30;
+        private const int WindowWidth = 1280;
+        private const int WindowHeight = 720;
+        private const int WindowDepth = 1280;
+        private const int TexLocation = 50;
+        private const int WindowMargin = 30;
         #endregion
 
         #region Enums
@@ -71,8 +72,8 @@ namespace Rotation3D
 
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
             //Setup Camera
             camTarget = new Vector3(0f, 0f, 0f);
@@ -208,20 +209,20 @@ namespace Rotation3D
                 case GameState.Initialize:
                     //string welcomeText = "3D Rotation Demo";
                     //spriteBatch.DrawString(largeFont, welcomeText, new Vector2(MARGIN, MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Space to rotate...OR Esc to quit", new Vector2(MARGIN, WINDOW_HEIGHT - MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Rotation Parameters", new Vector2(MARGIN, MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, " Roll = " + roll, new Vector2(MARGIN, MARGIN * 2), Color.Red);
-                    spriteBatch.DrawString(courierNew, "Pitch = " + pitch, new Vector2(MARGIN, MARGIN * 3), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "  Yaw = " + yaw, new Vector2(MARGIN, MARGIN * 4), Color.Yellow);
-                    spriteBatch.DrawString(courierNew, " Mode = " + rotationMode.ToString(), new Vector2(MARGIN, MARGIN * 5), Color.Green);
+                    spriteBatch.DrawString(courierNew, "Press Space to rotate...OR Esc to quit", new Vector2(WindowMargin, WindowHeight - WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Rotation Parameters", new Vector2(WindowMargin, WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, " Roll = " + roll, new Vector2(WindowMargin, WindowMargin * 2), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Pitch = " + pitch, new Vector2(WindowMargin, WindowMargin * 3), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "  Yaw = " + yaw, new Vector2(WindowMargin, WindowMargin * 4), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, " Mode = " + rotationMode.ToString(), new Vector2(WindowMargin, WindowMargin * 5), Color.Green);
                     airplane.Draw(gameTime, viewMatrix, worldMatrix, projectionMatrix);
                     break;
                 case GameState.Drawing:
-                    spriteBatch.DrawString(courierNew, "Rotation Parameters", new Vector2(MARGIN, MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, " Roll = " + roll, new Vector2(MARGIN, MARGIN * 2), Color.Red);
-                    spriteBatch.DrawString(courierNew, "Pitch = " + pitch, new Vector2(MARGIN, MARGIN * 3), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "  Yaw = " + yaw, new Vector2(MARGIN, MARGIN * 4), Color.Yellow);
-                    spriteBatch.DrawString(courierNew, " Mode = " + rotationMode.ToString(), new Vector2(MARGIN, MARGIN * 5), Color.Green);
+                    spriteBatch.DrawString(courierNew, "Rotation Parameters", new Vector2(WindowMargin, WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, " Roll = " + roll, new Vector2(WindowMargin, WindowMargin * 2), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Pitch = " + pitch, new Vector2(WindowMargin, WindowMargin * 3), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "  Yaw = " + yaw, new Vector2(WindowMargin, WindowMargin * 4), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, " Mode = " + rotationMode.ToString(), new Vector2(WindowMargin, WindowMargin * 5), Color.Green);
                     airplane.Draw(gameTime, viewMatrix, worldMatrix, projectionMatrix);
                     break;
                 case GameState.Quit:

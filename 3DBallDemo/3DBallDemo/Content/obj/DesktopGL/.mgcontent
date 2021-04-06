@@ -4,9 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/3DBallDemo/3DBallDemo/Content/BeachBallTexture.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/3DBallDemo/3DBallDemo/Content/BeachBall.dae</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/3DBallDemo/3DBallDemo/Content/CourierNew.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/3DBallDemo/3DBallDemo/Content/largeFont.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/3DBallDemo/3DBallDemo/Content/BeachBallTexture.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/3DBallDemo/3DBallDemo/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/3DBallDemo/3DBallDemo/Content/largeFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

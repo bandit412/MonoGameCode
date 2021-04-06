@@ -3,6 +3,7 @@
  *  File:       ForcesAtAngles.cs
  *  Author:     Allan Anderson
  *  Date:       August 4, 208
+ *  Modified:   April 6, 2021
  *  Purpose:    To visually demonstrate forces applied in 2D
  *  
  **/
@@ -19,16 +20,16 @@ namespace AngleForces
     public class ForcesAtAngles : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1024;
-        private const int WINDOW_HEIGHT = 700;
-        private const int WINDOW_MARGIN = 30;
-        private const int BOTTOM_BORDER = 647;
-        private const int INSTRUCTION_SPOT = 590;
+        private const int WindowWidth = 1024;
+        private const int WindowHeight = 700;
+        private const int WindowMargin = 30;
+        private const int BottomBorder = 647;
+        private const int InstructionSpot = 590;
         // string messages
-        private const string GAME_OVER = "Game Over";
-        private const string RESET_QUIT = "Press R to reset or Q to quit";
-        private int GAME_OVER_LENGTH = GAME_OVER.Length;
-        private int RESET_QUIT_LENGTH = RESET_QUIT.Length;
+        private const string GameOver = "Game Over";
+        private const string ResetQuit = "Press R to reset or Q to quit";
+        private int GameOverLength = GameOver.Length;
+        private int ResetQuitLength = ResetQuit.Length;
         #endregion
 
         #region Enums
@@ -69,13 +70,13 @@ namespace AngleForces
 
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
-            gameBoundingBox = new Rectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            gameBoundingBox = new Rectangle(0, 0, WindowWidth, WindowHeight);
             gameState = GameState.Initialize;
             wagon = new Wagon(
-                new Vector2((WINDOW_WIDTH - Wagon.HandleDimensions.X - Wagon.WagonDimensions.X) / 8, BOTTOM_BORDER - Wagon.WagonDimensions.Y),
+                new Vector2((WindowWidth - Wagon.HandleDimensions.X - Wagon.WagonDimensions.X) / 8, BottomBorder - Wagon.WagonDimensions.Y),
                 handleAngle,
                 forceMagnitude,
                 mass,
@@ -190,7 +191,7 @@ namespace AngleForces
                         wagon.FrictionCoefficient = frictionCoefficient;
                         wagon.ForceMagnitude = forceMagnitude;
                         wagon.HandleAngle = handleAngle;
-                        wagon.Location = new Vector2((WINDOW_WIDTH - Wagon.HandleDimensions.X - Wagon.WagonDimensions.X) / 8, BOTTOM_BORDER - Wagon.WagonDimensions.Y);
+                        wagon.Location = new Vector2((WindowWidth - Wagon.HandleDimensions.X - Wagon.WagonDimensions.X) / 8, BottomBorder - Wagon.WagonDimensions.Y);
                         gameState = GameState.Initialize;
                     }//end if
                     if ((currentKeys & InputKeyManager.Triggers.Quit) != 0)
@@ -215,41 +216,41 @@ namespace AngleForces
             {
                 case GameState.Initialize:
                     spriteBatch.DrawString(courierNew, "Forces At Angles in 2D", Vector2.Zero, Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to increas/decrease mass", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to decrease/increase friction coefficient", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Wagon Mass = " + wagon.Mass + " kg", new Vector2(WINDOW_MARGIN, WINDOW_HEIGHT - WINDOW_MARGIN), Color.Yellow);
-                    spriteBatch.DrawString(courierNew, "Friction Coefficient = " + wagon.FrictionCoefficient, new Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT - WINDOW_MARGIN), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to increas/decrease mass", new Vector2(WindowMargin, InstructionSpot), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to decrease/increase friction coefficient", new Vector2(WindowMargin, InstructionSpot + WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Wagon Mass = " + wagon.Mass + " kg", new Vector2(WindowMargin, WindowHeight - WindowMargin), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, "Friction Coefficient = " + wagon.FrictionCoefficient, new Vector2(WindowWidth / 2, WindowHeight - WindowMargin), Color.Yellow);
                     break;
                 case GameState.Playing:
                     wagon.Draw(gameTime, spriteBatch);
                     // display forces and values
-                    spriteBatch.DrawString(courierNew, "  Handle Angle = " + wagon.HandleAngle * -1 + " degrees", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "        Weight = [" + wagon.Weight.X + ", " + wagon.Weight.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 2), Color.Black);
-                    spriteBatch.DrawString(courierNew, "  Force Normal = [" + wagon.ForceNormal.X + "," + wagon.ForceNormal.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 3), Color.Black);
-                    spriteBatch.DrawString(courierNew, "         Force = " + wagon.ForceMagnitude + "N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 4), Color.Black);
-                    spriteBatch.DrawString(courierNew, " Force Applied = [" + wagon.ForceApplied.X + "," + wagon.ForceApplied.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 5), Color.Black);
-                    spriteBatch.DrawString(courierNew, "  Max Friction = [" + wagon.ForceFrictionMax.X + "," + wagon.ForceFrictionMax.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 6), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Force Friction = [" + wagon.ForceFriction.X + "," + wagon.ForceFriction.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 7), Color.Black);
-                    spriteBatch.DrawString(courierNew, "     Force Net = [" + wagon.ForceNet.X + "," + wagon.ForceNet.Y + "]N", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 8), Color.Black);
-                    spriteBatch.DrawString(courierNew, "  Acceleration = [" + wagon.Acceleration.X + "," + wagon.Acceleration.Y + "]m/s^2", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 9), Color.Black);
-                    spriteBatch.DrawString(courierNew, "      Velocity = [" + wagon.Velocity.X + "," + wagon.Velocity.Y + "]m/s", new Vector2(WINDOW_MARGIN, WINDOW_MARGIN * 10), Color.Black);
+                    spriteBatch.DrawString(courierNew, "  Handle Angle = " + wagon.HandleAngle * -1 + " degrees", new Vector2(WindowMargin, WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "        Weight = [" + wagon.Weight.X + ", " + wagon.Weight.Y + "]N", new Vector2(WindowMargin, WindowMargin * 2), Color.Black);
+                    spriteBatch.DrawString(courierNew, "  Force Normal = [" + wagon.ForceNormal.X + "," + wagon.ForceNormal.Y + "]N", new Vector2(WindowMargin, WindowMargin * 3), Color.Black);
+                    spriteBatch.DrawString(courierNew, "         Force = " + wagon.ForceMagnitude + "N", new Vector2(WindowMargin, WindowMargin * 4), Color.Black);
+                    spriteBatch.DrawString(courierNew, " Force Applied = [" + wagon.ForceApplied.X + "," + wagon.ForceApplied.Y + "]N", new Vector2(WindowMargin, WindowMargin * 5), Color.Black);
+                    spriteBatch.DrawString(courierNew, "  Max Friction = [" + wagon.ForceFrictionMax.X + "," + wagon.ForceFrictionMax.Y + "]N", new Vector2(WindowMargin, WindowMargin * 6), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Force Friction = [" + wagon.ForceFriction.X + "," + wagon.ForceFriction.Y + "]N", new Vector2(WindowMargin, WindowMargin * 7), Color.Black);
+                    spriteBatch.DrawString(courierNew, "     Force Net = [" + wagon.ForceNet.X + "," + wagon.ForceNet.Y + "]N", new Vector2(WindowMargin, WindowMargin * 8), Color.Black);
+                    spriteBatch.DrawString(courierNew, "  Acceleration = [" + wagon.Acceleration.X + "," + wagon.Acceleration.Y + "]m/s^2", new Vector2(WindowMargin, WindowMargin * 9), Color.Black);
+                    spriteBatch.DrawString(courierNew, "      Velocity = [" + wagon.Velocity.X + "," + wagon.Velocity.Y + "]m/s", new Vector2(WindowMargin, WindowMargin * 10), Color.Black);
                     // display mass and friction coefficient in lower portion of window
-                    spriteBatch.DrawString(courierNew, "Wagon Mass = " + wagon.Mass + " kg", new Vector2(WINDOW_MARGIN, WINDOW_HEIGHT - WINDOW_MARGIN), Color.Yellow);
-                    spriteBatch.DrawString(courierNew, "Friction Coefficient = " + wagon.FrictionCoefficient, new Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT - WINDOW_MARGIN), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, "Wagon Mass = " + wagon.Mass + " kg", new Vector2(WindowMargin, WindowHeight - WindowMargin), Color.Yellow);
+                    spriteBatch.DrawString(courierNew, "Friction Coefficient = " + wagon.FrictionCoefficient, new Vector2(WindowWidth / 2, WindowHeight - WindowMargin), Color.Yellow);
                     break;
                 case GameState.Paused:
                     // game is paused
-                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 10), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WindowWidth / 2 - 100, WindowHeight / 2 - 10), Color.Black);
                     break;
                 case GameState.GameOver:
                     //game is over
                     spriteBatch.DrawString(courierNew,
-                        GAME_OVER,
-                        new Vector2(WINDOW_WIDTH / 2 - ((GAME_OVER_LENGTH / 2) * 14), WINDOW_HEIGHT / 2 - WINDOW_MARGIN),
+                        GameOver,
+                        new Vector2(WindowWidth / 2 - ((GameOverLength / 2) * 14), WindowHeight / 2 - WindowMargin),
                         Color.Black);
                     spriteBatch.DrawString(courierNew,
-                        RESET_QUIT,
-                        new Vector2(WINDOW_WIDTH / 2 - ((RESET_QUIT_LENGTH / 2) * 14), WINDOW_HEIGHT / 2),
+                        ResetQuit,
+                        new Vector2(WindowWidth / 2 - ((ResetQuitLength / 2) * 14), WindowHeight / 2),
                         Color.Black);
                     break;
             }//end switch

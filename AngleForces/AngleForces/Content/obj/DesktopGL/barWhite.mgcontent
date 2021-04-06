@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/barWhite.png</SourceFile>
-  <SourceTime>2011-06-01T20:45:36-06:00</SourceTime>
-  <DestFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/AngleForces/AngleForces/Content/bin/DesktopGL/barWhite.xnb</DestFile>
-  <DestTime>2018-08-04T10:06:39.1059466-06:00</DestTime>
+  <SourceFile>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/barWhite.png</SourceFile>
+  <SourceTime>2018-09-03T08:01:38.6976909-06:00</SourceTime>
+  <DestFile>C:/Users/allan/Documents/GitHub/MonoGameCode/AngleForces/AngleForces/Content/bin/DesktopGL/barWhite.xnb</DestFile>
+  <DestTime>2021-04-06T10:14:02.7261912-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/CourierNew.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/RedBall.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/largeFont.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/boundary.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/RedBall.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/largeFont.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/boundary.png</File>
   </SourceFiles>
 </SourceFileCollection>

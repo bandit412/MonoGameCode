@@ -4,11 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/droplet.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/Font.spritefont</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/metaparticle.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/rock.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/sky.png</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/WavesDemo/WavesDemo/Content/SmallFont.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/droplet.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/Font.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/metaparticle.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/rock.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/sky.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/WavesDemo/WavesDemo/Content/SmallFont.spritefont</File>
   </SourceFiles>
 </SourceFileCollection>

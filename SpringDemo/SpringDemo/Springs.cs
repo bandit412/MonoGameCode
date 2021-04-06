@@ -19,8 +19,8 @@ namespace SpringDemo
     public class Springs : Game
     {
         #region Constants
-        const int WINDOW_WIDTH = 1024;
-        const int WINDOW_HEIGHT = 768;
+        const int WindowWidth = 1024;
+        const int WindowHeight = 768;
         #endregion
 
         #region Data Members
@@ -75,8 +75,8 @@ namespace SpringDemo
         protected override void Initialize()
         {
             base.Initialize();
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
             Vector2 p = smallFont.MeasureString(linkText);
             float height = p.Y;
@@ -303,7 +303,7 @@ namespace SpringDemo
 
                 spriteBatch.DrawString(smallFont, linkText, new Vector2(linkRect.X, linkRect.Y), Color.Blue);
 
-                if (helpVisible) spriteBatch.Draw(texHelp, new Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT/ 2), Color.White);
+                if (helpVisible) spriteBatch.Draw(texHelp, new Vector2(WindowWidth / 2, WindowHeight/ 2), Color.White);
             }
             spriteBatch.End();
 

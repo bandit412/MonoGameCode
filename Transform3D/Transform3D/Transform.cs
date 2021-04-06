@@ -3,6 +3,7 @@
  *     File:    Transform.cs
  *   Author:    Allan Anderson
  *     Date:    August 21, 2018
+ * Modified:    April 6, 2021
  *  Purpose:    To visually demonstrate transformation of an object in 3D space
  *  
  **/
@@ -33,15 +34,15 @@ namespace Transform3D
         #endregion
 
         #region Constants
-        private const int WINDOW_WIDTH = 1024;
-        private const int WINDOW_HEIGHT = 768;
-        private const int WINDOW_MARGIN = 30;
-        private const int INSTRUCTION_SPOT = 570;
+        private const int WindowWidth = 1024;
+        private const int WindowHeight = 768;
+        private const int WindowMargin = 30;
+        private const int InstructionSpot = 570;
         // string messages
-        private const string GAME_OVER = "Game Over";
-        private const string RESET_QUIT = "Press R to redo or Q to quit";
-        private int GAME_OVER_LENGTH = GAME_OVER.Length;
-        private int RESET_QUIT_LENGTH = RESET_QUIT.Length;
+        private const string GameOver = "Game Over";
+        private const string ResetQuit = "Press R to redo or Q to quit";
+        private int GameOverLength = GameOver.Length;
+        private int ResetQuitLength = ResetQuit.Length;
         //Vector3 "constants"
 
         #endregion
@@ -89,8 +90,8 @@ namespace Transform3D
         #region Game Methods
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
             //Setup Camera
             camTarget = new Vector3(0f, 0f, 0f);
@@ -330,39 +331,39 @@ namespace Transform3D
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, gridPoisitve, 0, 3);
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, gridNegative, 0, 3);
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, vertices, 0, 15);
-                    spriteBatch.DrawString(courierNew, "Shift and Scale in 3D", new Vector2(WINDOW_MARGIN, 0), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "Press - / +  to -/+ z", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN * 2), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "Press T to toggle between shift and scale", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 3 * WINDOW_MARGIN), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "To move camera press A/S = Left/Right and W/X = Up/Down", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 4 * WINDOW_MARGIN), Color.Purple);
-                    spriteBatch.DrawString(courierNew, "Press Esc to quit", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 5 * WINDOW_MARGIN), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Shift and Scale in 3D", new Vector2(WindowMargin, 0), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WindowMargin, InstructionSpot), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WindowMargin, InstructionSpot + WindowMargin), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Press - / +  to -/+ z", new Vector2(WindowMargin, InstructionSpot + WindowMargin * 2), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Press T to toggle between shift and scale", new Vector2(WindowMargin, InstructionSpot + 3 * WindowMargin), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "To move camera press A/S = Left/Right and W/X = Up/Down", new Vector2(WindowMargin, InstructionSpot + 4 * WindowMargin), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Press Esc to quit", new Vector2(WindowMargin, InstructionSpot + 5 * WindowMargin), Color.Purple);
                     // display transform matrix
-                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WINDOW_MARGIN, 2 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 0 " + shiftX + " |", new Vector2(WINDOW_MARGIN, 3 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " 0 " + shiftY + " |", new Vector2(WINDOW_MARGIN, 4 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 " + scaleZ + " " + shiftZ + " |", new Vector2(WINDOW_MARGIN, 5 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 0 1 |", new Vector2(WINDOW_MARGIN, 6 * WINDOW_MARGIN), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WindowMargin, 2 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 0 " + shiftX + " |", new Vector2(WindowMargin, 3 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " 0 " + shiftY + " |", new Vector2(WindowMargin, 4 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 " + scaleZ + " " + shiftZ + " |", new Vector2(WindowMargin, 5 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 0 1 |", new Vector2(WindowMargin, 6 * WindowMargin), Color.Blue);
                     break;
                 case GameState.Drawing:
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, gridPoisitve, 0, 3);
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, gridNegative, 0, 3);
                     graphics.GraphicsDevice.DrawUserPrimitives(PrimitiveType.LineList, vertices, 0, 15);
-                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WINDOW_MARGIN, 2 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 0 " + shiftX + " |", new Vector2(WINDOW_MARGIN, 3 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " 0 " + shiftY + " |", new Vector2(WINDOW_MARGIN, 4 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 " + scaleZ + " " + shiftZ + " |", new Vector2(WINDOW_MARGIN, 5 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "    | 0 0 0 1 |", new Vector2(WINDOW_MARGIN, 6 * WINDOW_MARGIN), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Mode: " + transformToggle.ToString(), new Vector2(WindowMargin, 2 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | " + scaleX + " 0 0 " + shiftX + " |", new Vector2(WindowMargin, 3 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "T = | 0 " + scaleY + " 0 " + shiftY + " |", new Vector2(WindowMargin, 4 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 " + scaleZ + " " + shiftZ + " |", new Vector2(WindowMargin, 5 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "    | 0 0 0 1 |", new Vector2(WindowMargin, 6 * WindowMargin), Color.Blue);
                     break;
                 case GameState.Paused:
                     // game is paused
-                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 10), Color.Purple);
+                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WindowWidth / 2 - 100, WindowHeight / 2 - 10), Color.Purple);
                     break;
                 case GameState.Reset:
                     spriteBatch.DrawString(courierNew,
-                        RESET_QUIT,
-                        new Vector2(WINDOW_WIDTH / 2 - ((RESET_QUIT_LENGTH / 2) * 14), WINDOW_HEIGHT / 2),
+                        ResetQuit,
+                        new Vector2(WindowWidth / 2 - ((ResetQuitLength / 2) * 14), WindowHeight / 2),
                         Color.Purple);
                     break;
                 case GameState.Quit:

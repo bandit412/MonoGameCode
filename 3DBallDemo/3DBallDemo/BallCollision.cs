@@ -3,6 +3,7 @@
  *  File:       Test3DDemo.cs
  *  Author:     Allan Anderson
  *  Date:       August 8, 2018
+ *  Modified:   April 6, 2021
  *  Purpose:    An object that will display as a ball bouncing in a 3D cube
  *  
  **/
@@ -20,10 +21,10 @@ namespace _3DBallDemo
     public class BallCollision : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1280;
-        private const int WINDOW_HEIGHT = 720;
-        private const int TEXT_LOCATION = WINDOW_WIDTH - 250;
-        private const int MARGIN = 30;
+        private const int WindowWidth = 1280;
+        private const int WindowHeight = 720;
+        private const int TextLocation = WindowWidth - 250;
+        private const int WindowMargin = 30;
         #endregion
 
         #region Enums
@@ -69,8 +70,8 @@ namespace _3DBallDemo
 
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
 
             //Setup Camera
@@ -186,12 +187,12 @@ namespace _3DBallDemo
             {
                 case DrawingState.Initialize:
                     string welcomeText = "3D Ball Collision Demo";
-                    spriteBatch.DrawString(largeFont, welcomeText, new Vector2(MARGIN, MARGIN), Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Space to continue...OR Q to quit", new Vector2(MARGIN, MARGIN * 4), Color.Blue);
+                    spriteBatch.DrawString(largeFont, welcomeText, new Vector2(WindowMargin, WindowMargin), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Press Space to continue...OR Q to quit", new Vector2(WindowMargin, WindowMargin * 4), Color.Blue);
                     break;
                 case DrawingState.Drawing:
                     // Ball Statistics
-                    spriteBatch.DrawString(courierNew, "Ball Statistics", new Vector2(TEXT_LOCATION, MARGIN), Color.Black);
+                    spriteBatch.DrawString(courierNew, "Ball Statistics", new Vector2(TextLocation, WindowMargin), Color.Black);
                     string velocityX = "Vx = " + ball.Velocity.X;
                     string VelocityY = "Vy = " + ball.Velocity.Y;
                     string VelocityZ = "Vz = " + ball.Velocity.Z;
@@ -199,12 +200,12 @@ namespace _3DBallDemo
                     string positionY = "Py = " + ball.Location.Y;
                     string positionZ = "Pz = " + ball.Location.Z;
 
-                    spriteBatch.DrawString(courierNew, velocityX, new Vector2(TEXT_LOCATION, MARGIN * 2), Color.Purple);
-                    spriteBatch.DrawString(courierNew, VelocityY, new Vector2(TEXT_LOCATION, MARGIN * 3), Color.Purple);
-                    spriteBatch.DrawString(courierNew, VelocityZ, new Vector2(TEXT_LOCATION, MARGIN * 4), Color.Purple);
-                    spriteBatch.DrawString(courierNew, positionX, new Vector2(TEXT_LOCATION, MARGIN * 6), Color.Blue);
-                    spriteBatch.DrawString(courierNew, positionY, new Vector2(TEXT_LOCATION, MARGIN * 7), Color.Blue);
-                    spriteBatch.DrawString(courierNew, positionZ, new Vector2(TEXT_LOCATION, MARGIN * 8), Color.Blue);
+                    spriteBatch.DrawString(courierNew, velocityX, new Vector2(TextLocation, WindowMargin * 2), Color.Purple);
+                    spriteBatch.DrawString(courierNew, VelocityY, new Vector2(TextLocation, WindowMargin * 3), Color.Purple);
+                    spriteBatch.DrawString(courierNew, VelocityZ, new Vector2(TextLocation, WindowMargin * 4), Color.Purple);
+                    spriteBatch.DrawString(courierNew, positionX, new Vector2(TextLocation, WindowMargin * 6), Color.Blue);
+                    spriteBatch.DrawString(courierNew, positionY, new Vector2(TextLocation, WindowMargin * 7), Color.Blue);
+                    spriteBatch.DrawString(courierNew, positionZ, new Vector2(TextLocation, WindowMargin * 8), Color.Blue);
 
                     basicEffect.Projection = projectionMatrix;
                     basicEffect.View = viewMatrix;
@@ -249,58 +250,58 @@ namespace _3DBallDemo
             Matrix rotY90 = Matrix.CreateRotationY(-MathHelper.Pi / 2);
             Matrix rotX90 = Matrix.CreateRotationX(-MathHelper.Pi / 2);
             // Top Left
-            face[0] = new Vector3(WINDOW_HEIGHT / -4, WINDOW_HEIGHT / 4, 0);
+            face[0] = new Vector3(WindowHeight / -4, WindowHeight / 4, 0);
             // Bottom Left
-            face[1] = new Vector3(WINDOW_HEIGHT / -4, WINDOW_HEIGHT / -4, 0);
+            face[1] = new Vector3(WindowHeight / -4, WindowHeight / -4, 0);
             // Top Right
-            face[2] = new Vector3(WINDOW_HEIGHT / 4, WINDOW_HEIGHT / 4, 0);
+            face[2] = new Vector3(WindowHeight / 4, WindowHeight / 4, 0);
             // Bottom Left
-            face[3] = new Vector3(WINDOW_HEIGHT / -4, WINDOW_HEIGHT / -4, 0);
+            face[3] = new Vector3(WindowHeight / -4, WindowHeight / -4, 0);
             // Bottom Right
-            face[4] = new Vector3(WINDOW_HEIGHT / 4, WINDOW_HEIGHT / -4, 0);
+            face[4] = new Vector3(WindowHeight / 4, WindowHeight / -4, 0);
             // Top Right
-            face[5] = new Vector3(WINDOW_HEIGHT / 4, WINDOW_HEIGHT / 4, 0);
+            face[5] = new Vector3(WindowHeight / 4, WindowHeight / 4, 0);
 
             // Front Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i] = new VertexPositionColor(face[i] + new Vector3(0, 0, WINDOW_HEIGHT / 4), Color.Yellow);
-                vertices[i + 3] = new VertexPositionColor(face[i + 3] + new Vector3(0, 0, WINDOW_HEIGHT / 4), Color.Yellow);
+                vertices[i] = new VertexPositionColor(face[i] + new Vector3(0, 0, WindowHeight / 4), Color.Yellow);
+                vertices[i + 3] = new VertexPositionColor(face[i + 3] + new Vector3(0, 0, WindowHeight / 4), Color.Yellow);
             }//end for
 
             // Back Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i + 6] = new VertexPositionColor(face[2 - i] - new Vector3(0, 0, WINDOW_HEIGHT / 4), Color.Green);
-                vertices[i + 6 + 3] = new VertexPositionColor(face[5 - i] - new Vector3(0, 0, WINDOW_HEIGHT / 4), Color.Green);
+                vertices[i + 6] = new VertexPositionColor(face[2 - i] - new Vector3(0, 0, WindowHeight / 4), Color.Green);
+                vertices[i + 6 + 3] = new VertexPositionColor(face[5 - i] - new Vector3(0, 0, WindowHeight / 4), Color.Green);
             }//end for
 
             // Left Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i + 12] = new VertexPositionColor(Vector3.Transform(face[i], rotY90) - new Vector3(WINDOW_HEIGHT / 4, 0, 0), Color.Blue);
-                vertices[i + 12 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotY90) - new Vector3(WINDOW_HEIGHT / 4, 0, 0), Color.Blue);
+                vertices[i + 12] = new VertexPositionColor(Vector3.Transform(face[i], rotY90) - new Vector3(WindowHeight / 4, 0, 0), Color.Blue);
+                vertices[i + 12 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotY90) - new Vector3(WindowHeight / 4, 0, 0), Color.Blue);
             }//end for
 
             // Right Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i + 18] = new VertexPositionColor(Vector3.Transform(face[2 - i], rotY90) + new Vector3(WINDOW_HEIGHT / 4, 0, 0), Color.Purple);
-                vertices[i + 18 + 3] = new VertexPositionColor(Vector3.Transform(face[5 - i], rotY90) + new Vector3(WINDOW_HEIGHT / 4, 0, 0), Color.Purple);
+                vertices[i + 18] = new VertexPositionColor(Vector3.Transform(face[2 - i], rotY90) + new Vector3(WindowHeight / 4, 0, 0), Color.Purple);
+                vertices[i + 18 + 3] = new VertexPositionColor(Vector3.Transform(face[5 - i], rotY90) + new Vector3(WindowHeight / 4, 0, 0), Color.Purple);
             }//end for
 
             // Top Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i + 24] = new VertexPositionColor(Vector3.Transform(face[i], rotX90) + new Vector3(0, WINDOW_HEIGHT / 4, 0), Color.Red);
-                vertices[i + 24 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotX90) + new Vector3(0, WINDOW_HEIGHT / 4, 0), Color.Red);
+                vertices[i + 24] = new VertexPositionColor(Vector3.Transform(face[i], rotX90) + new Vector3(0, WindowHeight / 4, 0), Color.Red);
+                vertices[i + 24 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotX90) + new Vector3(0, WindowHeight / 4, 0), Color.Red);
             }//end for
 
             // Bottom Face
             for (int i = 0; i <= 2; i++)
             {
-                vertices[i + 30] = new VertexPositionColor(Vector3.Transform(face[i], rotX90) - new Vector3(0, WINDOW_HEIGHT / 4, 0), Color.Orange);
-                vertices[i + 30 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotX90) - new Vector3(0, WINDOW_HEIGHT / 4, 0), Color.Orange);
+                vertices[i + 30] = new VertexPositionColor(Vector3.Transform(face[i], rotX90) - new Vector3(0, WindowHeight / 4, 0), Color.Orange);
+                vertices[i + 30 + 3] = new VertexPositionColor(Vector3.Transform(face[i + 3], rotX90) - new Vector3(0, WindowHeight / 4, 0), Color.Orange);
             }//end for
 
             return vertices;
@@ -318,9 +319,9 @@ namespace _3DBallDemo
         private Vector3 SetRandomLocation()
         {
             Vector3 spot = new Vector3();
-            spot.X = rnd.Next(-1 * (WINDOW_HEIGHT / 4) + 50, WINDOW_HEIGHT / 4 - 50);
-            spot.Y = rnd.Next(-1 * (WINDOW_HEIGHT / 4) + 50, WINDOW_HEIGHT / 4 - 50);
-            spot.Z = rnd.Next(-1 * (WINDOW_HEIGHT / 4) + 50, WINDOW_HEIGHT / 4 - 50);
+            spot.X = rnd.Next(-1 * (WindowHeight / 4) + 50, WindowHeight / 4 - 50);
+            spot.Y = rnd.Next(-1 * (WindowHeight / 4) + 50, WindowHeight / 4 - 50);
+            spot.Z = rnd.Next(-1 * (WindowHeight / 4) + 50, WindowHeight / 4 - 50);
             return spot;
         }//eom
 

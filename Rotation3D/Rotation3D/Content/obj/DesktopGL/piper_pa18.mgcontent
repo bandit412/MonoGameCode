@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/piper_pa18.fbx</SourceFile>
-  <SourceTime>2018-08-07T09:13:51.5692019-06:00</SourceTime>
-  <DestFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/bin/DesktopGL/piper_pa18.xnb</DestFile>
-  <DestTime>2018-08-09T14:25:26.8272543-06:00</DestTime>
+  <SourceFile>C:/Users/allan/Documents/GitHub/MonoGameCode/Rotation3D/Rotation3D/Content/piper_pa18.fbx</SourceFile>
+  <SourceTime>2018-09-03T08:01:41.7286799-06:00</SourceTime>
+  <DestFile>C:/Users/allan/Documents/GitHub/MonoGameCode/Rotation3D/Rotation3D/Content/bin/DesktopGL/piper_pa18.xnb</DestFile>
+  <DestTime>2021-04-06T10:26:56.8433619-06:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -66,7 +66,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset>
-    <string>C:/_DMIT_New/_PHYS1521/MonoGameDemos/Rotation3D/Rotation3D/Content/bin/DesktopGL/piper_diffuse_0.xnb</string>
+    <string>C:/Users/allan/Documents/GitHub/MonoGameCode/Rotation3D/Rotation3D/Content/bin/DesktopGL/piper_diffuse_0.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

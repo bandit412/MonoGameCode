@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/CourierNew.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/largeFont.spritefont</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/RedBall.png</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/BouncingBallDemo/BouncingBallDemo/Content/boundary.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/BouncingBallDemo/BouncingBallDemo/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/BouncingBallDemo/BouncingBallDemo/Content/largeFont.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/BouncingBallDemo/BouncingBallDemo/Content/RedBall.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/BouncingBallDemo/BouncingBallDemo/Content/boundary.png</File>
   </SourceFiles>
 </SourceFileCollection>

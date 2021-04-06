@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/Transform3D/Transform3D/Content/CourierNew.spritefont</File>
-    <File>D:/Courses/_DMIT_New/_PHYS1521/MonoGameDemos/Transform3D/Transform3D/Content/point.png</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/Transform3D/Transform3D/Content/CourierNew.spritefont</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/Transform3D/Transform3D/Content/point.png</File>
   </SourceFiles>
 </SourceFileCollection>

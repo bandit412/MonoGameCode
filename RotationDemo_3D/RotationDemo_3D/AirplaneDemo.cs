@@ -3,6 +3,7 @@
  *  File:       AirplaneDemo.cs
  *  Author:     Allan Anderson
  *  Date:       August 7, 2018
+ *  Modified:   April 6, 2021
  *  Purpose:    An object that will demo 3D rotations
  *  
  **/
@@ -16,9 +17,9 @@ namespace RotationDemo_3D
     public class AirplaneDemo : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1280;
-        private const int WINDOW_HEIGHT = 720;
-        private const int WINDOW_DEPTH = 1280;
+        private const int WindowWidth = 1280;
+        private const int WindowHeight = 720;
+        private const int WindowDepth = 1280;
         #endregion
 
         #region Initial Settings
@@ -43,8 +44,8 @@ namespace RotationDemo_3D
 
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
             //Setup Camera
             camTarget = new Vector3(0f, 0f, 0f);

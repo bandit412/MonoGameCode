@@ -27,17 +27,17 @@ namespace TwoDRotation
     public class Two_D_Rotation : Game
     {
         #region Constants
-        private const int WINDOW_WIDTH = 1024;
-        private const int WINDOW_HEIGHT = 768;
-        private const int WINDOW_MARGIN = 30;
-        private const int INSTRUCTION_SPOT = 590;
+        private const int WindowWidth = 1024;
+        private const int WindowHeight = 768;
+        private const int WindowMargin = 30;
+        private const int InstructionSpot = 590;
         // string messages
-        private const string GAME_OVER = "Game Over";
-        private const string RESET_QUIT = "Press R to redo or Q to quit";
-        private int GAME_OVER_LENGTH = GAME_OVER.Length;
-        private int RESET_QUIT_LENGTH = RESET_QUIT.Length;
+        private const string GameOver = "Game Over";
+        private const string ResetQuit = "Press R to redo or Q to quit";
+        private int GameOverLength = GameOver.Length;
+        private int ResetQuitLength = ResetQuit.Length;
         // vector2 "constants"
-        private Vector2 GRID_CENTER = new Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
+        private Vector2 GridCenter = new Vector2(WindowWidth / 2, WindowHeight / 2);
         #endregion
 
         #region Enums
@@ -79,12 +79,12 @@ namespace TwoDRotation
         #region Game Methods
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = WINDOW_WIDTH;
-            graphics.PreferredBackBufferHeight = WINDOW_HEIGHT;
+            graphics.PreferredBackBufferWidth = WindowWidth;
+            graphics.PreferredBackBufferHeight = WindowHeight;
             graphics.ApplyChanges();
-            gameBoundingBox = new Rectangle(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            gameBoundingBox = new Rectangle(0, 0, WindowWidth, WindowHeight);
             drawingState = DrawingState.Initialize;
-            twoDObject = new TwoDObject(GRID_CENTER, GRID_CENTER, 1.0f, 1.0f);
+            twoDObject = new TwoDObject(GridCenter, GridCenter, 1.0f, 1.0f);
             basicEffect = new BasicEffect(graphics.GraphicsDevice);
             basicEffect.VertexColorEnabled = true;
             basicEffect.Projection = Matrix.CreateOrthographicOffCenter
@@ -141,7 +141,7 @@ namespace TwoDRotation
                     }//end if
                     if ((currentKeys & InputKeyManager.Triggers.Origin) != 0)
                     {
-                        twoDObject.RotationPoint = GRID_CENTER;
+                        twoDObject.RotationPoint = GridCenter;
                     }//end if
                     if ((currentKeys & InputKeyManager.Triggers.Center) != 0)
                     {
@@ -213,11 +213,11 @@ namespace TwoDRotation
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, vertices, 0, 5);
                     spriteBatch.DrawString(courierNew, "Rotation in 2D", Vector2.Zero, Color.Black);
-                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press C to roate about object's center or O to rotate about the origin", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 2 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Press '+' for clockwise or '-' for counterclockwise", new Vector2(WINDOW_MARGIN, INSTRUCTION_SPOT + 3 * WINDOW_MARGIN), Color.Blue);
-                    spriteBatch.DrawString(courierNew, "Rotation Point (" + (twoDObject.RotationPoint.X - GRID_CENTER.X) + "," + ((twoDObject.RotationPoint.Y - GRID_CENTER.Y) * -1) + ")", new Vector2(0, WINDOW_MARGIN), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Press Up/Down arrows to +/- y", new Vector2(WindowMargin, InstructionSpot), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press Left/Right arrows to -/+ x", new Vector2(WindowMargin, InstructionSpot + WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press C to roate about object's center or O to rotate about the origin", new Vector2(WindowMargin, InstructionSpot + 2 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Press '+' for clockwise or '-' for counterclockwise", new Vector2(WindowMargin, InstructionSpot + 3 * WindowMargin), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Rotation Point (" + (twoDObject.RotationPoint.X - GridCenter.X) + "," + ((twoDObject.RotationPoint.Y - GridCenter.Y) * -1) + ")", new Vector2(0, WindowMargin), Color.Red);
                     spriteBatch.Draw(gridPoint, twoDObject.RotationPoint, Color.White);
                     break;
                 case DrawingState.Drawing:
@@ -226,16 +226,16 @@ namespace TwoDRotation
                     basicEffect.CurrentTechnique.Passes[0].Apply();
                     graphics.GraphicsDevice.DrawUserPrimitives<VertexPositionColor>(PrimitiveType.LineList, vertices, 0, 5);
                     spriteBatch.DrawString(courierNew, "Rotation in 2D", Vector2.Zero, Color.Black);
-                    spriteBatch.DrawString(courierNew, "Rotation Point (" + (twoDObject.RotationPoint.X - GRID_CENTER.X) + "," + ((twoDObject.RotationPoint.Y - GRID_CENTER.Y) * -1) + ")", new Vector2(0, WINDOW_MARGIN), Color.Red);
+                    spriteBatch.DrawString(courierNew, "Rotation Point (" + (twoDObject.RotationPoint.X - GridCenter.X) + "," + ((twoDObject.RotationPoint.Y - GridCenter.Y) * -1) + ")", new Vector2(0, WindowMargin), Color.Red);
                     break;
                 case DrawingState.Paused:
                     // game is paused
-                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 10), Color.Blue);
+                    spriteBatch.DrawString(courierNew, "Game is Paused", new Vector2(WindowWidth / 2 - 100, WindowHeight / 2 - 10), Color.Blue);
                     break;
                 case DrawingState.Reset:
                     spriteBatch.DrawString(courierNew,
-                        RESET_QUIT,
-                        new Vector2(WINDOW_WIDTH / 2 - ((RESET_QUIT_LENGTH / 2) * 14), WINDOW_HEIGHT / 2),
+                        ResetQuit,
+                        new Vector2(WindowWidth / 2 - ((ResetQuitLength / 2) * 14), WindowHeight / 2),
                         Color.Black);
                     break;
                 case DrawingState.Done:

@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/RotationDemo_3D/RotationDemo_3D/Content/piper_bump.jpg</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/RotationDemo_3D/RotationDemo_3D/Content/piper_diffuse.jpg</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/RotationDemo_3D/RotationDemo_3D/Content/piper_pa18.fbx</File>
-    <File>C:/_DMIT_New/_PHYS1521/MonoGameDemos/RotationDemo_3D/RotationDemo_3D/Content/piper_refl.jpg</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/RotationDemo_3D/RotationDemo_3D/Content/piper_bump.jpg</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/RotationDemo_3D/RotationDemo_3D/Content/piper_diffuse.jpg</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/RotationDemo_3D/RotationDemo_3D/Content/piper_pa18.fbx</File>
+    <File>C:/Users/allan/Documents/GitHub/MonoGameCode/RotationDemo_3D/RotationDemo_3D/Content/piper_refl.jpg</File>
   </SourceFiles>
 </SourceFileCollection>

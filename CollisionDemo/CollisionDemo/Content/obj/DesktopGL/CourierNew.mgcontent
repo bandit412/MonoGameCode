@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/CourierNew.spritefont</SourceFile>
-  <SourceTime>2018-08-07T14:06:21.8183922-06:00</SourceTime>
-  <DestFile>C:/_DMIT_New/_PHYS1521/MonoGameDemos/CollisionDemo/CollisionDemo/Content/bin/DesktopGL/CourierNew.xnb</DestFile>
-  <DestTime>2018-08-07T14:06:30.5899942-06:00</DestTime>
+  <SourceFile>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/CourierNew.spritefont</SourceFile>
+  <SourceTime>2018-09-03T08:01:39.3160716-06:00</SourceTime>
+  <DestFile>C:/Users/allan/Documents/GitHub/MonoGameCode/CollisionDemo/CollisionDemo/Content/bin/DesktopGL/CourierNew.xnb</DestFile>
+  <DestTime>2021-04-06T10:20:13.738277-06:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T08:05:36-07:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>
